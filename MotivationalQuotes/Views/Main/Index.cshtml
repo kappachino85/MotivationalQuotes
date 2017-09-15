@@ -12,12 +12,18 @@
     <title>Index</title>
 </head>
 <body ng-app="myApp">
-    <div>
+    <div ng-controller="quoteCtrl as qc">
+        <div>
+            <h4>"{{qc.quotes.Quote}}"</h4>
+            <h5>-{{qc.quotes.Author}}</h5>
+        </div>
     </div>
 
     <script src="~/Scripts/jquery-1.10.2.min.js"></script>
     <script src="~/Scripts/bootstrap.min.js"></script>
     <script src="~/Scripts/angular.min.js"></script>
     <script src="~/Scripts/site/app.js"></script>
+    <script src="~/Scripts/services/quoteService.js"></script>
+    <script src="~/Scripts/controllers/quoteController.js"></script>
 </body>
 </html>

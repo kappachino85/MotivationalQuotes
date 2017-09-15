@@ -84,7 +84,8 @@ namespace MotivationalQuotes.Controllers.Api
             }
             try
             {
-                return Request.CreateResponse(HttpStatusCode.OK, _quoteService.Insert(model));
+                _quoteService.Insert(model);
+                return Request.CreateResponse(HttpStatusCode.OK, model);
             }
             catch (Exception ex)
             {
@@ -99,12 +100,10 @@ namespace MotivationalQuotes.Controllers.Api
             {
                 return Request.CreateErrorResponse(HttpStatusCode.BadGateway, ModelState);
             }
-
-            SuccessResponse response = new SuccessResponse();
             try
             {
                 _quoteService.Update(model);
-                return Request.CreateResponse(HttpStatusCode.OK, response);
+                return Request.CreateResponse(HttpStatusCode.OK, model);
             }
             catch (Exception ex)
             {

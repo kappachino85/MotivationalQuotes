@@ -20,6 +20,7 @@ namespace MotivationalQuotes.Services
             _baseService = baseService;
         }
 
+        //this will be used to DISPLAY ALL the quotes for users to edit
         public IEnumerable<Quotes> ReadAll()
         {
             return _baseService.SqlAdapter.LoadObject<Quotes>(new DbCommandDef
@@ -29,6 +30,7 @@ namespace MotivationalQuotes.Services
             });
         }
 
+        //this is to GET A RANDOM QUOTE from the database to display on the main page
         public IEnumerable<Quotes> Read()
         {
             return _baseService.SqlAdapter.LoadObject<Quotes>(new DbCommandDef
@@ -38,6 +40,7 @@ namespace MotivationalQuotes.Services
             });
         }
 
+        //when users SELECT A QUOTE on the edit page, this will call that procedure
         public Quotes ReadById(int id)
         {
             return _baseService.SqlAdapter.LoadObject<Quotes>(new DbCommandDef
