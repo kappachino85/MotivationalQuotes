@@ -1,4 +1,5 @@
 ﻿using MotivationalQuotes.Domain;
+using MotivationalQuotes.Models.Requests;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,6 +13,8 @@ namespace MotivationalQuotes.Services.Interfaces
         IEnumerable<Quotes> ReadAll();
         IEnumerable<Quotes> Read();
         Quotes ReadById(int Id);
-
+        int Insert(QuoteAddRequest model);
+        void Delete(int id);
+        void Update(QuoteUpdateRequest model);
     }
 }
