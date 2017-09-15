@@ -5,6 +5,8 @@ using System.Web.Http;
 using System.Web.Http.Dependencies;
 using System;
 using System.Collections.Generic;
+using MotivationalQuotes.Services.Interfaces;
+using MotivationalQuotes.Services;
 
 namespace MotivationalQuotes
 {
@@ -22,7 +24,9 @@ namespace MotivationalQuotes
         {
             UnityContainer container = new UnityContainer();
             //container.RegisterType<IYourInterfaceName, YourConcreteClassName>();
-            
+
+            container.RegisterType<IBaseService, BaseService>();
+            container.RegisterType<IQuoteService, QuoteService>();
 
             DependencyResolver.SetResolver(new UnityDependencyResolver(container));
             config.DependencyResolver = new UnityResolver(container);
