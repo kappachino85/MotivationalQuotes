@@ -187,6 +187,8 @@
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\img\bluepaper.jpg" />
+    <Content Include="Content\main.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -988,6 +990,7 @@
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\services\quoteService.js" />
     <Content Include="Scripts\site\app.js" />
+    <Content Include="Scripts\templates\editPage.html" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

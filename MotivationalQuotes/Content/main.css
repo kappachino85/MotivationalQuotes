@@ -1,0 +1,54 @@
+﻿body {
+    background-image: url('img/bluepaper.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    background-size: cover;
+    height: 100%;
+}
+
+#mainWrapper {
+    text-align: center;
+    color: white;
+    margin-top: 350px;
+    font-weight: bold;
+}
+
+#quoteContainer {
+    border: solid 3px white;
+    margin: 70px 300px;
+    border-radius: 3px;
+    padding: 5px 10px 7px;
+    background-color: rgba(366, 366, 366, 0.15);
+}
+
+#arrowRight {
+    transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg);
+    position: relative; 
+    margin-right: 50px;
+    margin-top: 60px;
+}
+
+i {
+    border: 5px solid white;
+    border-width: 0 3px 3px 0;
+    display: inline-block;
+    height: 30px !important;
+    width: 30px !important;
+    padding: 5px;
+    color: white !important;
+}
+
+i:hover {
+    cursor: pointer;
+}
+
+#generateButton {
+    margin-top: -40px !important;
+}
+
+/*[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x- ng-cloak {
+    display: none !important;
+}*/
+

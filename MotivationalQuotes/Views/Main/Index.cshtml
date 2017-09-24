@@ -5,25 +5,39 @@
 
 <!DOCTYPE html>
 
-<html>
+<html data-ng-app="myApp">
 <head>
     <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/main.css" rel="stylesheet" />
     <meta name="viewport" content="width=device-width" />
     <title>Index</title>
 </head>
-<body ng-app="myApp">
-    <div ng-controller="quoteCtrl as qc">
-        <div>
-            <h4>"{{qc.quotes.Quote}}"</h4>
-            <h5>-{{qc.quotes.Author}}</h5>
-        </div>
+
+<body data-ng-controller="quoteCtrl as qc" ng-cloak>
+    <div id="container">
+        <div id="pageContent" data-ng-include src="template" data-ng-init="qc.render()"></div>
     </div>
 
-    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
-    <script src="~/Scripts/bootstrap.min.js"></script>
-    <script src="~/Scripts/angular.min.js"></script>
-    <script src="~/Scripts/site/app.js"></script>
-    <script src="~/Scripts/services/quoteService.js"></script>
-    <script src="~/Scripts/controllers/quoteController.js"></script>
+    <script type="text/ng-template" id="quotePage">
+        <div id="mainWrapper">
+            <div id="arrowRight" class="pull-right"><h3><i class="arrow right"></i></h3></div>
+            <div id="quoteContainer">
+                <h2>"{{qc.quotes.Quote}}"</h2>
+                <h3>-{{qc.quotes.Author}}</h3>
+            </div>
+
+            <button data-ng-click="qc.randomQuote()" type="button" class="btn btn-default btn-lg" id="generateButton">Generate New Quote</button>
+
+        </div>
+    </script>
+
+
+        <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+        <script src="~/Scripts/bootstrap.min.js"></script>
+        <script src="~/Scripts/angular.min.js"></script>
+        <script src="~/Scripts/site/app.js"></script>
+        <script src="~/Scripts/services/quoteService.js"></script>
+        <script src="~/Scripts/controllers/quoteController.js"></script>    
+
 </body>
 </html>

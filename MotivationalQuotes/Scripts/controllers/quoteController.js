@@ -11,6 +11,7 @@
         vm.$window = $window;
         vm.$location = $location;
 
+        vm.render = _render;
         vm.randomQuote = _randomQuote;
         //vm.getAllQuotes = _getAllQuotes;
         //vm.selectQuote = _selectQuote;
@@ -20,12 +21,18 @@
 
         vm.quotes = [];
 
-        _randomQuote();
+        console.log("action");
+
+        function _render() {
+            vm.$scope.template = 'quotePage';
+            _randomQuote();
+        }
 
         function _randomQuote() {
             return vm.quoteService.getRand().then(function (data) {
                 vm.quotes = data;
             })
         }
+
     }
 })();
