@@ -46,7 +46,6 @@
         }
 
         function _postQuote() {
-            console.log('clicked');
             var itm = {};
             vm.quote = itm;
 

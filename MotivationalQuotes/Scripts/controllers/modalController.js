@@ -24,9 +24,9 @@
             } else {
                 //insert
                 vm.quoteService.post(data).then(function () {
-                    vm.quotes.push(data);
+                    vm.quoteService.getAll();
                 }).catch(function (ex) {
-                    console.log(ex.statusText);
+                    console.log(ex);
                 })
             }
             vm.quotes = null;
