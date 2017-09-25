@@ -15,12 +15,13 @@
 
 <body data-ng-controller="quoteCtrl as qc" ng-cloak>
     <div id="container">
-        <div id="pageContent" data-ng-include src="template" data-ng-init="qc.render()"></div>
+        <div data-ng-include src="template" data-ng-init="qc.render()"></div>
     </div>
 
+    <!--Initial template that will display quotes-->
     <script type="text/ng-template" id="quotePage">
         <div id="mainWrapper">
-            <div id="arrowRight" class="pull-right"><h3><i class="arrow right"></i></h3></div>
+            <div id="arrowRight" class="pull-right"><h3><i class="arrow right" data-ng-click="qc.editPage()"></i></h3></div>
             <div id="quoteContainer">
                 <h2>"{{qc.quotes.Quote}}"</h2>
                 <h3>-{{qc.quotes.Author}}</h3>
@@ -31,13 +32,48 @@
         </div>
     </script>
 
+    <!--Second template that will allow CRUD-->
+    <script type="text/ng-template" id="editPage">
+        <div id="editWrapper">
+            <div id="arrowLeft" class="pull-left"><h3><i class="arrow left" data-ng-click="qc.render()"></i></h3></div>
+            <h1 id="editHeader">Quote Manager</h1>
+            <div id="createButton"><button type="button" class="btn btn-default btn-lg" data-ng-click="qc.postQuote()">Create Quote</button></div>
+
+            <div class="container content">
+                <div class="miniHeader row">
+                    <div class="col-sm-6 col-sm-offset-1">
+                        <b>Quote</b>
+                    </div>
+                    <div class="col-sm-4">
+                        <b>Author</b>
+                    </div>
+                </div>
+
+                <div data-ng-repeat="itm in qc.quotes" id="entireContent">
+                    <div data-ng-click="doNothing()" class="eachItem row">
+                        <div class="col-sm-6 col-sm-offset-1">
+                            <div>{{itm.Quote}}</div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div id="author">{{itm.Author}}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </script>
+
+        <ng-include src="'/Scripts/templates/quoteModal.html'"></ng-include>
 
         <script src="~/Scripts/jquery-1.10.2.min.js"></script>
         <script src="~/Scripts/bootstrap.min.js"></script>
         <script src="~/Scripts/angular.min.js"></script>
+        <script src="~/Scripts/angular-ui/ui-bootstrap-tpls.min.js"></script>
         <script src="~/Scripts/site/app.js"></script>
         <script src="~/Scripts/services/quoteService.js"></script>
-        <script src="~/Scripts/controllers/quoteController.js"></script>    
+        <script src="~/Scripts/controllers/quoteController.js"></script>
+        <script src="~/Scripts/controllers/modalController.js"></script>
 
 </body>
 </html>

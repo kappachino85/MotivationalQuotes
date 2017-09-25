@@ -2,6 +2,6 @@
 
 (function (appName) {
 
-    var app = angular.module(appName, []);
+    var app = angular.module(appName, ['ui.bootstrap']);
 
 })(AppName);

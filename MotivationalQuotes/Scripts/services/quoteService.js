@@ -25,7 +25,7 @@
                 .catch(getAllFailure)
 
             function getAllSuccess(response) {
-                return response;
+                return response.data;
             }
 
             function getAllFailure(response) {
@@ -39,7 +39,6 @@
                 .catch(getRandFailure)
 
             function getRandSuccess(response) {
-                console.log(response.data[0]);
                 return response.data[0];
             }
 
@@ -62,8 +61,8 @@
             }
         }
 
-        function _post() {
-            return $http.post("/api/quotes")
+        function _post(data) {
+            return $http.post("/api/quotes", data)
                 .then(postSuccess)
                 .catch(postFailure)
 
@@ -76,8 +75,8 @@
             }
         }
 
-        function _put(id) {
-            return $http.put("/api/quotes/" + id)
+        function _put(id, data) {
+            return $http.put("/api/quotes/" + id, data)
                 .then(putSuccess)
                 .catch(putFailure)
 

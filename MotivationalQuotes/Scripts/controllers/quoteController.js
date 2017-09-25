@@ -2,26 +2,26 @@
     'use strict';
 
     angular.module(AppName).controller('quoteCtrl', QuoteCtrl);
-    QuoteCtrl.$inject = ['quoteService', '$scope', '$location', '$window'];
+    QuoteCtrl.$inject = ['quoteService', '$scope', '$location', '$window', '$uibModal'];
 
-    function QuoteCtrl(quoteService, $scope, $location, $window) {
+    function QuoteCtrl(quoteService, $scope, $location, $window, $uibModal) {
         var vm = this;
         vm.quoteService = quoteService;
         vm.$scope = $scope;
         vm.$window = $window;
         vm.$location = $location;
+        vm.$uibModal = $uibModal;
 
         vm.render = _render;
+        vm.editPage = _editPage;
         vm.randomQuote = _randomQuote;
-        //vm.getAllQuotes = _getAllQuotes;
+        vm.getAllQuotes = _getAllQuotes;
         //vm.selectQuote = _selectQuote;
         //vm.deleteQuote = _deleteQuote;
         //vm.updateQuote = _updateQuote;
-        //vm.postQuote = _postQuote;
+        vm.postQuote = _postQuote;
 
         vm.quotes = [];
-
-        console.log("action");
 
         function _render() {
             vm.$scope.template = 'quotePage';
@@ -34,5 +34,36 @@
             })
         }
 
+        function _editPage() {
+            vm.$scope.template = 'editPage';
+            _getAllQuotes();
+        }
+
+        function _getAllQuotes() {
+            return vm.quoteService.getAll().then(function (data) {
+                vm.quotes = data;
+            })
+        }
+
+        function _postQuote() {
+            console.log('clicked');
+            var itm = {};
+            vm.quote = itm;
+
+            var modalInstance = vm.$uibModal.open({
+                templateUrl: 'quoteModal',
+                controller: 'modalController as mCtrl',
+                size: 'md',
+                resolve: {
+                    edit: function () {
+                        return itm;
+                    }
+                }
+            });
+
+            modalInstance.result.then(function () {
+                _getAllQuotes();
+            },function () {});
+        }
     }
 })();
