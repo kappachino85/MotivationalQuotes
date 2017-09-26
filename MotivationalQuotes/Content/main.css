@@ -5,6 +5,7 @@
     background-attachment: fixed;
     background-size: cover;
     height: 100%;
+    padding-bottom: 50px;
 }
 
 #mainWrapper {
@@ -33,7 +34,7 @@
 #arrowLeft {
     transform: rotate(135deg);
     -webkit-transform: rotate(135deg);
-    position: absolute;
+    position: fixed;
     margin-left: 50px;
     margin-top: 360px;
 }

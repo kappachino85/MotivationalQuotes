@@ -18,9 +18,9 @@
         vm.quotes = [];
 
         function _save(data) {
-            if (data.hasOwnProperty('id')) {
+            if (data.hasOwnProperty('Id')) {
                 //update
-                vm.quoteService.put(data.id, data);
+                vm.quoteService.put(data.Id, data);
             } else {
                 //insert
                 vm.quoteService.post(data).then(function () {

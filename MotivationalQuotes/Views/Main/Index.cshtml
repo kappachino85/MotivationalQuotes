@@ -50,7 +50,7 @@
                 </div>
 
                 <div data-ng-repeat="itm in qc.quotes" id="entireContent">
-                    <div data-ng-click="doNothing()" class="eachItem row">
+                    <div data-ng-click="qc.selectQuote(itm)" class="eachItem row">
                         <div class="col-sm-6 col-sm-offset-1">
                             <div>{{itm.Quote}}</div>
                         </div>

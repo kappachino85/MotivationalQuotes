@@ -16,7 +16,7 @@
         vm.editPage = _editPage;
         vm.randomQuote = _randomQuote;
         vm.getAllQuotes = _getAllQuotes;
-        //vm.selectQuote = _selectQuote;
+        vm.selectQuote = _selectQuote;
         //vm.deleteQuote = _deleteQuote;
         //vm.updateQuote = _updateQuote;
         vm.postQuote = _postQuote;
@@ -63,6 +63,25 @@
             modalInstance.result.then(function () {
                 _getAllQuotes();
             },function () {});
+        }
+
+        function _selectQuote(itm) {
+            vm.quote = itm;
+            console.log(itm);
+            console.log(vm.quote);
+
+            var modalInstance = vm.$uibModal.open({
+                templateUrl: 'quoteModal',
+                controller: 'modalController as mCtrl',
+                size: 'md',
+                resolve: {
+                    edit: function () {
+                        return itm;
+                    }
+                }
+            });
+
+            modalInstance.result.then(function () { }, function () { });
         }
     }
 })();

@@ -88,7 +88,7 @@ namespace MotivationalQuotes.Services
         {
             _baseService.SqlAdapter.ExecuteQuery(new DbCommandDef
             {
-                DbCommandText = "dbo.Quotes_Delete",
+                DbCommandText = "dbo.Quotes_Update",
                 DbCommandType = System.Data.CommandType.StoredProcedure,
                 DbParameters = new SqlParameter[]
                 {
