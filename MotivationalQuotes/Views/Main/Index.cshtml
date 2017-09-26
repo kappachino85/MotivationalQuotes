@@ -27,7 +27,7 @@
                 <h3>-{{qc.quotes.Author}}</h3>
             </div>
 
-            <button data-ng-click="qc.randomQuote()" type="button" class="btn btn-default btn-lg" id="generateButton">Generate New Quote</button>
+            <button data-ng-click="qc.randomQuote()" type="button" class="btn btn-default btn-lg" id="generateButton">Quote Me!</button>
 
         </div>
     </script>
@@ -50,6 +50,7 @@
                 </div>
 
                 <div data-ng-repeat="itm in qc.quotes" id="entireContent">
+                    <span data-ng-click="qc.deleteQuote(itm)" class="close" style="color: red">&times;</span>
                     <div data-ng-click="qc.selectQuote(itm)" class="eachItem row">
                         <div class="col-sm-6 col-sm-offset-1">
                             <div>{{itm.Quote}}</div>
@@ -65,7 +66,7 @@
     </script>
 
         <ng-include src="'/Scripts/templates/quoteModal.html'"></ng-include>
-
+        <ng-include src="'/Scripts/templates/deleteModal.html'"></ng-include>
         <script src="~/Scripts/jquery-1.10.2.min.js"></script>
         <script src="~/Scripts/bootstrap.min.js"></script>
         <script src="~/Scripts/angular.min.js"></script>

@@ -996,6 +996,7 @@
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\services\quoteService.js" />
     <Content Include="Scripts\site\app.js" />
+    <Content Include="Scripts\templates\deleteModal.html" />
     <Content Include="Scripts\templates\quoteModal.html" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">

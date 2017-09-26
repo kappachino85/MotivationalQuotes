@@ -13,6 +13,7 @@
         vm.$scope = $scope;
         vm.cancel = _cancel;
         vm.save = _save;
+        vm.delete = _delete;
         vm.$uibModalInstance = $uibModalInstance;
 
         vm.quotes = [];
@@ -37,5 +38,13 @@
             vm.$uibModalInstance.dismiss("cancel");
         }
 
+        function _delete(data) {
+            vm.quoteService.deleteQuote(data.Id).then(function () {
+                vm.quoteService.getAll();
+            }).catch(function (ex) {
+                console.log(ex);
+            })
+            vm.$uibModalInstance.close();
+        }
     }
 })();

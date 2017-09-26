@@ -17,8 +17,7 @@
         vm.randomQuote = _randomQuote;
         vm.getAllQuotes = _getAllQuotes;
         vm.selectQuote = _selectQuote;
-        //vm.deleteQuote = _deleteQuote;
-        //vm.updateQuote = _updateQuote;
+        vm.deleteQuote = _deleteQuote;
         vm.postQuote = _postQuote;
 
         vm.quotes = [];
@@ -52,6 +51,7 @@
             var modalInstance = vm.$uibModal.open({
                 templateUrl: 'quoteModal',
                 controller: 'modalController as mCtrl',
+                animation: true,
                 size: 'md',
                 resolve: {
                     edit: function () {
@@ -67,12 +67,11 @@
 
         function _selectQuote(itm) {
             vm.quote = itm;
-            console.log(itm);
-            console.log(vm.quote);
 
             var modalInstance = vm.$uibModal.open({
                 templateUrl: 'quoteModal',
                 controller: 'modalController as mCtrl',
+                animation: true,
                 size: 'md',
                 resolve: {
                     edit: function () {
@@ -81,6 +80,23 @@
                 }
             });
 
+            modalInstance.result.then(function () { }, function () { });
+        }
+
+        function _deleteQuote(itm) {
+            vm.quote = itm;
+
+            var modalInstance = vm.$uibModal.open({
+                templateUrl: 'deleteModal',
+                controller: 'modalController as mCtrl',
+                animation: true,
+                size: 'md',
+                resolve: {
+                    edit: function () {
+                        return itm;
+                    }
+                }
+            });
             modalInstance.result.then(function () { }, function () { });
         }
     }

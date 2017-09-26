@@ -104,3 +104,7 @@ i:hover {
 #author {
     margin-left: 40px;
 }
+
+.close {
+    padding-right: 11px;
+}
